@@ -1,24 +1,242 @@
-# MioSitoWeb
-Landing page responsive e interattiva dedicata alla Mole Antonelliana di Torino, sviluppata come progetto d'esame di Web Design. Include galleria fotografica, sezione storica con dettagli a scomparsa, mappa interattiva e un calcolatore dinamico in JavaScript per il prezzo dei biglietti del museo. HTML5, CSS3, JS.
-Landing page informativa, interattiva e responsive dedicata alla **Mole Antonelliana** di Torino, sviluppata come progetto d'esame di Web Design. Il sito unisce la storia architettonica del celebre monumento torinese al suo ruolo contemporaneo di sede del Museo Nazionale del Cinema.
+[index.html](https://github.com/user-attachments/files/34986246/index.html)
 
-## ✨ Caratteristiche Principali
+ <!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mole Antonelliana | Esame di Web Design</title>
+    <link rel="stylesheet" type="text/css" href="stile/grafica.css">
+</head>
+<body>
 
-* **Design Responsive & Moderno:** Layout flessibile ottimizzato per dispositivi desktop, tablet e smartphone grazie all'uso di griglie CSS e media query dedicate.
-* **Sezioni Tematiche Strutturate:**
-  * **Storia:** Approfondimento sulla genesi ottocentesca del monumento e sulle vicende della guglia.
-  * **Architettura & Statistiche:** Griglie informative con i dati chiave dell'opera.
-  * **Galleria:** Sezione visiva con effetti di zoom e transizioni al passaggio del mouse (*hover*).
-  * **Informazioni per la Visita:** Orari, indirizzi e una mappa interattiva integrata tramite iframe di Google Maps, accompagnata da consigli pratici per i turisti.
-  * **Museo Nazionale del Cinema:** Approfondimento dedicato al percorso museale e all'ascensore panoramico.
-* **Interattività in JavaScript:**
-  * **Calcolatore Dinamico dei Biglietti:** Permette agli utenti di selezionare la tipologia di biglietto (intero, ridotto, gratuito) e il numero di partecipanti per calcolare in tempo reale il costo stimato.
-  * **Pulsante di Approfondimento:** Interazione per mostrare o nascondere dettagli storici avanzati con un click.
+    <header>
+        <div class="logo">Mole<span>Torino</span></div>
+        <nav>
+            <ul>
+                <li><a href="#storia">Storia</a></li>
+                <li><a href="#architettura">Architettura</a></li>
+                <li><a href="#museo">Il Museo</a></li>
+                <li><a href="#biglietti">Pianifica Visita</a></li>
+            </ul>
+        </nav>
+    </header>
 
-## 🛠️ Tecnologie Utilizzate
+    <main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mole Antonelliana</h1>
+            <p>Il cuore verticale di Torino, tra storia e cinema.</p>
+            <a href="#storia" class="btn">Scopri di più</a>
+        </div>
+    </section>
 
-* **HTML5** (Struttura semantica e accessibile)
-* **CSS3** (Custom Properties, Grid Layout, Flexbox, Smooth Scroll)
-* **JavaScript (Vanilla)** (Gestione eventi, manipolazione del DOM, logica del calcolatore)
+    <section id="storia" class="info-section">
+        <h2>Un'Opera Ambiziosa</h2>
+        <div class="container-storia">
+            <p>Progettata originariamente dall'architetto Alessandro Antonelli nel 1863 come sinagoga, la Mole è diventata nel tempo il simbolo indiscusso della città di Torino. Con i suoi 167,5 metri di altezza, è stata per anni una delle costruzioni in muratura più alte del mondo. Oggi ospita al suo interno il celebre Museo Nazionale del Cinema.</p>
+        
+            <p class="testo-nascosto" id="testoApprofondimento">
+                La costruzione fu tormentata: i costi eccessivi e le modifiche al progetto originale spinsero la comunità ebraica a cedere l'edificio al Comune nel 1873. Antonelli continuò a modificarne la forma fino alla sua morte, avvenuta nel 1888, poco prima del completamento dell'opera. La guglia attuale è una ricostruzione: quella originale crollò nel 1953 a causa di un violentissimo nubifragio e fu sostituita da una struttura rinforzata in acciaio.
+            </p>
+		
+            <button id="btnEsplora" class="btn btn-secondary">Scopri di più</button>
+        </div>
 
-* *Creato per scopi accademici / esame di Web Design.*
+        <div class="scroll-arrow">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <section id="architettura" class="stats-section">
+        <h2>I Numeri della Mole</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>167,5 m</h3>
+                <p>Altezza totale compresa la guglia</p>
+            </div>
+            <div class="stat-card">
+                <h3>1889</h3>
+                <p>Anno di inaugurazione</p>
+            </div>
+            <div class="stat-card">
+                <h3>1961</h3>
+                <p>Inaugurazione dell'ascensore panoramico</p>
+            </div>
+        </div>
+    </section>
+	
+    <section id="galleria" class="gallery-section">
+        <h2>Galleria Architettonica</h2>
+        <p class="subtitle">Esplora i dettagli e le diverse prospettive del simbolo di Torino</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="architettura-interna.jpg" alt="Architettura interna della Mole Antonelliana"> 
+                </div>
+                <div class="gallery-caption">Architettura Interna</div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="architettura-esterna.jpg" alt="Facciata esterna della Mole">
+                </div>
+                <div class="gallery-caption">Architettura Esterna</div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="la mole al tramonto.jpeg" alt="La Mole Antonelliana stagliata contro il tramonto">
+                </div>
+                <div class="gallery-caption">La Mole al Tramonto</div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="decorazioni-architettoniche.jpeg" alt="Dettagli architettonici e decorazioni della Mole">
+                </div>
+                <div class="gallery-caption">Dettagli Architettonici</div>
+            </div>
+        </div>
+    </section>  
+	
+    <section id="informazioni" class="info-visita-section">
+        <h2>Informazioni per la Visita</h2>
+        <p class="subtitle">Tutto quello che c'è da sapere per organizzare al meglio la tua esperienza</p>
+
+        <div class="info-schede-box">
+            <div class="info-colonna">
+                <div class="info-card-pratica">
+                    <h3>Giorni e Orari</h3>
+                    <p><strong>Lunedì - Domenica:</strong> 09:00 – 19:00</p>
+                    <p><strong>Martedì:</strong> Chiuso per turno settimanale</p>
+                    <p><small>* Ultimo ingresso un'ora prima della chiusura.</small></p>
+                </div>
+
+                <div class="info-card-pratica">
+                    <h3>Dove si trova</h3>
+                    <p><strong>Indirizzo:</strong> Via Montebello, 20, 10124 Torino TO</p>
+                    <p>Situata in pieno centro storico, è facilmente raggiungibile a piedi da Piazza Castello o con i mezzi pubblici (Linee 13, 15, 55, 56, 68).</p>
+                </div>
+            </div>
+
+            <div class="mappa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.7247738221603!2d7.690559376664973!3d45.069032760205255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47886d6f2df6b91d%3A0x6002f1a6006e8b4e!2sMole%20Antonelliana!5e0!3m2!1sit!2sit!4v1710000000000!5m2!1sit!2sit" 
+				width="100%" 
+				height="100%" 
+				style="border:0;" 
+				allowfullscreen="" 
+				loading="lazy;" 
+				referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+            </div>
+        </div>
+
+        <div class="consigli-container">
+            <h3>I Nostri Consigli per la Visita</h3>
+            <div class="consigli-grid">
+                <div class="consiglio-item">
+                    <h4>Prenota in Anticipo</h4>
+                    <p>I posti per l'ascensore panoramico sono limitati. Ti consigliamo caldamente di acquistare il biglietto online qualche giorno prima per non rimanere a terra.</p>
+                </div>
+                <div class="consiglio-item">
+                    <h4>Arriva Presto</h4>
+                    <p>Nelle ore centrali della giornata le code ai controlli di sicurezza possono allungarsi. Arrivare la mattina presto ti farà risparmiare molto tempo.</p>
+                </div>
+                <div class="consiglio-item">
+                    <h4>Protezione Solare</h4>
+                    <p>Se decidi di salire sul terrazzino panoramico della cupola in estate, sarai completamente all'aperto sotto il sole: porta con te occhiali e protezione solare!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <section id="museo" class="cinema-section">
+        <h2 class="titolo-museo">Museo Nazionale del Cinema</h2>
+        <p class="sottotitolo-museo">Uno dei musei cinematografici più importanti al mondo</p>
+        
+        <div class="colonne-layout">
+            <div class="colonna">
+                <h3 class="sezione-titolo">Percorso Museale</h3>
+                <p class="sezione-testo">
+                    Oltre 3.000 reperti distribuiti su più livelli raccontano la storia del cinema dalle origini ad oggi. Proiezioni, installazioni interattive e rarità cinematografiche da tutto il mondo.
+                </p>
+                <a href="#biglietti" class="bottone">Acquista Biglietti</a>
+            </div>
+            
+            <div class="colonna">
+                <h3 class="sezione-titolo">Ascensore Panoramico</h3>
+                <p class="sezione-testo">
+                    Sali fino a 85 metri con l'ascensore panoramico in vetro e goditi una vista unica su Torino e le Alpi. Accessibile a tutti i visitatori con il biglietto del museo.
+                </p>
+                <a href="#informazioni" class="bottone">Maggiori Info</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="biglietti" class="ticket-section">
+        <h2>Pianifica la tua Visita</h2>
+        <p class="subtitle">Calcola il prezzo del tuo biglietto per il Museo + Ascensore Panoramico</p>
+        
+        <div class="ticket-box">
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="ticketType">Tipo di Biglietto:</label>
+                    <select id="ticketType">
+                        <option value="15">Intero (Museo + Ascensore) - €15</option>
+                        <option value="12">Ridotto (Studenti 18-25) - €12</option>
+                        <option value="0">Gratuito (Under 18) - €0</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantity">Numero di persone:</label>
+                    <input type="number" id="quantity" min="1" value="1" required>
+                </div>
+                
+                <button type="button" id="btnCalcola" class="btn">Calcola Totale</button>
+            </form>
+            
+            <div id="result" class="result-box">
+                Il tuo totale stimato è: <span id="totalPrice">€15</span>
+            </div>
+        </div>
+    </section>
+	</main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>La Mole Antonelliana</h3>
+                <p>Simbolo di Torino e sede del Museo Nazionale del Cinema, patrimonio architettonico dell'Italia dell'Ottocento.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Link Utili</h3>
+                <ul>
+                    <li><a href="#biglietti">Acquista Biglietti</a></li>
+                    <li><a href="#museo">Museo del Cinema</a></li>
+                    <li><a href="#biglietti">Accessibilità</a></li>
+                    <li><a href="#informazioni">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <p><strong>Tel:</strong> +39 011 8138560</p>
+                <p><strong>Email:</strong> info@museocinema.it</p>
+                <p>Via Montebello, 20<br>10124 Torino, Italia</p>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 La Mole Antonelliana. Tutti i diritti riservati. | Privacy Policy | Termini e Condizioni</p>
+        </div>
+    </footer>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <script src="script.js"></script>
+</body>
+</html>
